@@ -1,4 +1,4 @@
-#Mastering Algorithms
+# Mastering Algorithms
 
 Personal repository to study and practice algorithmic problems solving.
 
