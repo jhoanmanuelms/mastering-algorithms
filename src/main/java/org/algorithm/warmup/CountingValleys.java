@@ -5,6 +5,7 @@ public class CountingValleys {
         System.out.println(countingValleys(8, "UDDDUDUU"));
         System.out.println(countingValleys(8, "DDUUUUDD"));
         System.out.println(countingValleys(12, "DDUUDDUDUUUD"));
+        System.out.println(countingValleys(30, "UUDDUUUDDDDDUDUUUDDUDUUUDDUUDD"));
     }
 
     static int countingValleys(int n, String s) {
@@ -15,13 +16,11 @@ public class CountingValleys {
         for (char step : s.toCharArray()) {
             level += computeStep(step);
 
-            if (level == -1) {
-                if (!crossingValley) {
-                    crossingValley = true;
-                } else {
-                    valleys++;
-                    crossingValley = false;
-                }
+            if (level == -1 && !crossingValley) {
+                crossingValley = true;
+            } else if (level == 0 && crossingValley) {
+                valleys++;
+                crossingValley = false;
             }
         }
 
